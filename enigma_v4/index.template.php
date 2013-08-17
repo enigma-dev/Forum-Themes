@@ -96,7 +96,7 @@ function template_main_above()
 	<link rel="stylesheet" type="text/css" href="/site/style4.scss.css">
         <link rel="stylesheet" type="text/css" href="//code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 
-	<link rel="stylesheet" type="text/css" href="'. $settings['default_theme_url']. '/admin.css" />
+	<link rel="stylesheet" type="text/css" href="'. $settings['default_theme_url']. '/css/admin.css" />
 	<link rel="stylesheet" type="text/css" href="'. $settings['theme_url']. '/style.css?5635251" />
 	
 	<link rel="stylesheet" type="text/css" href="'. $settings['theme_url']. '/enigma.css?1" />
@@ -193,14 +193,14 @@ function template_main_above()
 	{
 		$bclasses .= 'nonsense';
 	}
-        
-                                $loc = $_SERVER['REQUEST_URI']; 
-                                $bhref = "/";
-                                echo "<!-- Location: $loc -->";
-                                if($loc == "/forums/index.php" || $loc == "/forums/" || $loc == "/forums") { $bhref = "/"; }
-                                else { $bhref = "/forums/"; }
 	
-	ENIGMASite::output_header($context['page_title'], $headextra, $bclasses, false, $bhref);
+	$loc = $_SERVER['REQUEST_URI']; 
+	$banner_href = "/";
+	echo "<!-- Location: $loc -->";
+	if($loc == "/forums/index.php" || $loc == "/forums/" || $loc == "/forums") { $banner_href = "/"; }
+	else { $banner_href = "/forums/"; }
+	
+	ENIGMASite::output_header($context['page_title_html_safe'], $headextra, $bclasses, false, $banner_href);
 
 		// Echo a2h's navigation links submenu navbar thing
 		if($context['user']['is_logged'])

@@ -74,3 +74,12 @@ code
 	border-left:4px solid #D19B82;
 	padding: 1px 4px;
 }
+
+.tttag {
+	background-color: #F6F8FA;
+	border: 1px solid #BBCCDD;
+	border-radius: 3px 3px 3px 3px;
+	margin: 0 2px;
+	padding: 0 5px;
+	font-family: monospace, Courier New, Courier, fixed
+}

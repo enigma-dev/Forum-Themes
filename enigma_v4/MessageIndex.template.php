@@ -304,7 +304,7 @@ echo ' <div class="board_rules tborder windowbg2">', $context['topblock'], '</di
 							}
 					echo '
 							</select>';*/
-				echo 'this is ghey <p class="align_right" id="message_index_jump_to">&nbsp;</p>';
+				echo '<p class="align_right" id="message_index_jump_to">&nbsp;</p>';
 			}
 			echo '
 							<input type="submit" value="', $txt['quick_mod_go'], '" onclick="return document.forms.quickModForm.qaction.value != \'\' &amp;&amp; confirm(\'', $txt['quickmod_confirm'], '\');" />
@@ -367,12 +367,13 @@ echo ' <div class="board_rules tborder windowbg2">', $context['topblock'], '</di
 		     :'<img src="' . $settings['images_url'] . '/topic/new_topic_lighx.gif" alt="New Topic" align="middle" />&nbsp;')
 		    . (($context['can_post_poll']) ?
 		      '<a href="' . $scripturl . '?action=post;board=' . $context['current_board'] . '.0;poll">
-				   <img src="' . $settings['images_url'] . '/topic/new_poll_light.gif" alt="New Poll" align="middle" /></a> <br /><br />'
-				 :'<img src="' . $settings['images_url'] . '/topic/new_poll_lighx.gif" alt="New Poll" align="middle" /><br /><br />')
+				   <img src="' . $settings['images_url'] . '/topic/new_poll_light.gif" alt="New Poll" align="middle" /></a>'
+				 :'<img src="' . $settings['images_url'] . '/topic/new_poll_lighx.gif" alt="New Poll" align="middle" />')
 				
-				.'<form action="', $scripturl, '" method="get" accept-charset="', $context['character_set'], '" name="jumptoForm">
+				. '<div id="message_index_jump_to"><form action="', $scripturl, '" method="get" accept-charset="', $context['character_set'], '" name="jumptoForm">
 						<span class="smalltext"><label for="jumpto">' . $txt['jump_to'] . '</label>:</span>
-					<select name="jumpto" id="jumpto" onchange="if (this.selectedIndex > 0 &amp;&amp; this.options[this.selectedIndex].value) window.location.href = smf_scripturl + this.options[this.selectedIndex].value.substr(smf_scripturl.indexOf(\'?\') == -1 || this.options[this.selectedIndex].value.substr(0, 1) != \'?\' ? 0 : 1);">
+					<select name="jumpto" id="jumpto" onchange="if (this.selectedIndex > 0 &amp;&amp; this.options[this.selectedIndex].value) window.location.href = smf_scripturl 
++ this.options[this.selectedIndex].value.substr(smf_scripturl.indexOf(\'?\') == -1 || this.options[this.selectedIndex].value.substr(0, 1) != \'?\' ? 0 : 1);">
 								<option value="">' . $txt['select_destination'] . ':</option>';
 
 	// Show each category - they all have an id, name, and the boards in them.
@@ -397,7 +398,7 @@ echo ' <div class="board_rules tborder windowbg2">', $context['topblock'], '</di
 	echo '
 						</select>&nbsp;
 					<input type="button" value="', $txt['go'], '" onclick="if (this.form.jumpto.options[this.form.jumpto.selectedIndex].value) window.location.href = \'', $scripturl, '\' + this.form.jumpto.options[this.form.jumpto.selectedIndex].value;" />
-					</form>
+					</form></div>
 				</td>
 			</tr>
 		</table>

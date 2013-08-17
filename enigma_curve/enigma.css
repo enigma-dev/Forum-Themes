@@ -1,0 +1,85 @@
+/* quotes fixed for smf 2 */
+
+.quoteheader
+{
+	background: #E4EAF2 url(/images/v4/css_img_quote.gif) no-repeat right;
+	border: 1px dotted #000;
+	border-bottom: 0;
+	border-left: 4px solid #8394B2;
+	color: #000;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 8px auto 0 auto;
+	padding: 3px;
+}
+
+blockquote
+{
+	background:#FAFCFE;
+	border:1px dotted #000;
+	border-left:4px solid #8394B2;
+	border-top:0;
+	color: #465584;
+	padding: 4px;
+	margin: 0 auto 8px auto;
+	font-size: 13px !important;
+}
+
+/* code blocks fixed for smf 2 */
+
+.codeheader
+{
+	background: #FDDBCC url(/images/v4/css_img_code.gif) no-repeat right;
+	border: 1px dotted #000;
+	border-bottom: 0;
+	border-left: 4px solid #D19B82;
+	color: #000;
+	font-weight: bold;
+	font-size: 10px;
+	margin: 0 auto 0 auto;
+	padding: 3px;
+}
+code, code.bbc_code
+{
+	display:block;
+	background:#FFFEFD;
+	border:1px dotted #000;
+	border-left:4px solid #D19B82;
+	border-top:0;
+	color: #465584;
+	font-family: Monospace, Courier, Courier New, Verdana, Arial;
+	padding: 4px;
+	margin: 0 auto 8px auto;
+	font-size: 13px !important;
+}
+
+/* Custom BBCode tags */
+
+.bubbletag, .codesniptag
+{
+	font-family: Monospace, Courier, Courier New, Verdana, Arial;
+	display: inline-block;
+}
+.bubbletag
+{
+  background-color: #F9F9FF;
+	padding: 1px 4px;
+	border-radius: 6px;
+}
+.codesniptag
+{
+	color: #000000;
+	background:#FFFEFD;
+	border:1px dotted #000;
+	border-left:4px solid #D19B82;
+	padding: 1px 4px;
+}
+
+.tttag {
+	background-color: #F6F8FA;
+	border: 1px solid #BBCCDD;
+	border-radius: 3px 3px 3px 3px;
+	margin: 0 2px;
+	padding: 0 5px;
+	font-family: monospace, Courier New, Courier, fixed
+}
