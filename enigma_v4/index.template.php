@@ -177,7 +177,7 @@ function template_main_above()
 				document.cookie = "upshrinkIC=" + (mode ? 1 : 0);';
 	else
 		$headextra .= '
-				smf_setThemeOption("collapse_header_ic" . (mode ? 1 : 0) . null . "' . $context['session_id'] . '");';
+				smf_setThemeOption("collapse_header_ic", mode ? 1 : 0, null, "' . $context['session_id'] . '");';
 
 	$headextra .= '
 				document.getElementById("upshrink_ic").src = smf_images_url + (mode ? "/expand.gif" : "/collapse.gif");

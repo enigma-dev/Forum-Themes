@@ -243,9 +243,23 @@ function template_main()
 			$ignoring = true;
 			$ignoredMsgs[] = $message['id'];
 		}
-	
+
+// echo '<!-- JOSHINFO: '; var_dump($message['member']); echo '-->';		
+		if ($message['member']['username'] == 'Fede-lasse' && !$context['user']['is_admin'])
+		{
+			echo '
+       	<tr><td class="windowbg2">
+          <div style="text-align: center; background: transparent repeating-linear-gradient(-45deg, rgba(200, 200, 200, 0) 0px, rgba(200, 200, 200, 0) 3px, rgb(200, 200, 200) 4px, rgba(200, 200, 200, 0) 5px); padding: 8px;">
+            <span style="font-style: italic; background-color: #DDD; border-radius: 4px; padding: 4px 12px; display: inline-block;">';
+			echo "Post made " . $message['time'] . " was deleted at the author's request.";
+			echo '</span>
+          </div>
+       </td></tr>';
+			continue;
+		}
+
 		echo '
-	<tr><!--<td style="padding: 1px 1px 0 1px;">--><td>';
+	<tr><td>';
 
 		// Show the message anchor and a "new" anchor if this message is new.
 		if ($message['id'] != $context['first_message'])
@@ -257,19 +271,18 @@ function template_main()
 			<tr><td class="', $message['alternate'] == 0 ? 'windowbg' : 'windowbg2', '">';
 		
 		
-		
 		/////Post table with author name
 		////////////////////////////////
 		
-$gender = strtolower($message['member']['gender']['name']);
-if ($gender == "") { $gender = "unknown"; }
+		$gender = strtolower($message['member']['gender']['name']);
+		if ($gender == "") { $gender = "unknown"; }
 
-switch ($gender)
-{
-case "male": $genderecho = "Male"; break;
-case "female": $genderecho = "Female"; break;
-case "unknown": $genderecho = "Unknown gender"; break;
-}
+		switch ($gender)
+		{
+			case "male": $genderecho = "Male"; break;
+			case "female": $genderecho = "Female"; break;
+			case "unknown": $genderecho = "Unknown gender"; break;
+		}
 
 		// Show information about the poster of this message.
 		echo '
@@ -405,28 +418,28 @@ case "unknown": $genderecho = "Unknown gender"; break;
 			echo '
 								';
 			switch ($message['member']['group']) {
-			case "Dev Team": case "Developers": //echo '<object type="image/svg+xml" data="http://enigma-dev.org/forums/membericons/developer.svg">Developer</object>'; break;
-				echo '<img src="http://enigma-dev.org/forums/membericons/developer.svg.png" alt="Developer" />'; break;
-			case "LGM Developers": //echo '<object type="image/svg+xml" data="http://enigma-dev.org/forums/membericons/lgm_developer.svg">LGM Developer</object>'; break;
-				echo '<img src="http://enigma-dev.org/forums/membericons/lgm_developer.svg.png" alt="LGM Developer" />'; break;
+			case "Dev Team": case "Developers": //echo '<object type="image/svg+xml" data="membericons/developer.svg">Developer</object>'; break;
+				echo '<img src="membericons/developer.svg.png" alt="Developer" />'; break;
+			case "LGM Developers": //echo '<object type="image/svg+xml" data="membericons/lgm_developer.svg">LGM Developer</object>'; break;
+				echo '<img src="membericons/lgm_developer.svg.png" alt="LGM Developer" />'; break;
 			case "Moderator":
-			case "Contributor": //echo '<object type="image/svg+xml" data="http://enigma-dev.org/forums/membericons/contributor.svg">Contributor</object>'; break;
-				echo '<img src="http://enigma-dev.org/forums/membericons/contributor.svg.png" alt="Contributor" />'; break;
-			case "Member": //echo '<object type="image/svg+xml" data="http://enigma-dev.org/forums/membericons/member.svg">Member</object>'; break;
-				echo '<img src="http://enigma-dev.org/forums/membericons/member.svg.png" alt="Member" />'; break;
-			case "Moron": //echo '<object type="image/svg+xml" data="http://enigma-dev.org/forums/membericons/moron.svg">Moron</object>'; break;
-				echo '<img src="http://enigma-dev.org/forums/membericons/moron.svg.png" alt="Moron" />'; break;
-			case "Fede": //echo '<object type="image/svg+xml" data="http://enigma-dev.org/forums/membericons/moron.svg">Moron</object>'; break;
-				echo '<img src="http://enigma-dev.org/forums/membericons/fede.svg.png" alt="Fede" />'; break;
-			case "Resident Troll": //echo '<object type="image/svg+xml" data="http://enigma-dev.org/forums/membericons/moron.svg">Moron</object>'; break;
-				echo '<img src="http://enigma-dev.org/forums/membericons/troll.svg.png" alt="Resident Troll" />'; break;
+			case "Contributor": //echo '<object type="image/svg+xml" data="membericons/contributor.svg">Contributor</object>'; break;
+				echo '<img src="membericons/contributor.svg.png" alt="Contributor" />'; break;
+			case "Member": //echo '<object type="image/svg+xml" data="membericons/member.svg">Member</object>'; break;
+				echo '<img src="membericons/member.svg.png" alt="Member" />'; break;
+			case "Moron": //echo '<object type="image/svg+xml" data="membericons/moron.svg">Moron</object>'; break;
+				echo '<img src="membericons/moron.svg.png" alt="Moron" />'; break;
+			case "Fede": //echo '<object type="image/svg+xml" data="membericons/moron.svg">Moron</object>'; break;
+				echo '<img src="membericons/fede.svg.png" alt="Fede" />'; break;
+			case "Resident Troll": //echo '<object type="image/svg+xml" data="membericons/moron.svg">Moron</object>'; break;
+				echo '<img src="membericons/troll.svg.png" alt="Resident Troll" />'; break;
 			default: echo '"' . $message['member']['group'] . '"'; // print_r($message['member']);
 			}
 			echo '<br />';
 		}
     else
     	echo '
-                                                                <img src="http://enigma-dev.org/forums/membericons/member.svg.png" alt="Member" /><br/>';
+                                                                <img src="membericons/member.svg.png" alt="Member" /><br/>';
 	//echo '
 	//							Member<br />';
     

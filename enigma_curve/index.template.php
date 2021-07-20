@@ -86,6 +86,7 @@ function template_html_above()
 
 	// The ?fin20 part of this link is just here to make sure browsers don't cache it wrongly.
 	$headextra .= '
+	<link rel="stylesheet" type="text/css" href="/site/style4.scss.css" />
 	<link rel="stylesheet" type="text/css" href="' . $settings['theme_url'] . '/css/index' . $context['theme_variant'] . '.css?fin20" />
 	<link rel="stylesheet" type="text/css" href="' . $settings['theme_url'] . '/enigma.css" />';
 
@@ -173,7 +174,7 @@ function template_html_above()
 	else { $banner_href = "/forums/"; }
 	
 	// echo 'hi';
-	ENIGMASite::output_header($context['page_title_html_safe'], $headextra, $bclasses, true, $banner_href);
+	ENIGMASite::output_header($context['page_title_html_safe'], $headextra, $bclasses, false, $banner_href);
 	// echo 'hello';
 }
 
