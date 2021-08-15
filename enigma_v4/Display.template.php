@@ -554,7 +554,7 @@ function template_main()
 		echo '
 		        <td class="postquad4" valign="top">
                 ';
-                $row = mysql_fetch_assoc(mysql_query("SELECT * FROM edc_messages WHERE id_msg=".$message['id']));
+                $row = mysqli_fetch_assoc(mysqli_query("SELECT * FROM edc_messages WHERE id_msg=".$message['id']));
                 
                 $which = (isset($_GET["bbparser"]))?$_GET["bbparser"]:"no";
                 $body = (strtolower($which)=="josh")?bbparse($row["body"]):$message["body"];
